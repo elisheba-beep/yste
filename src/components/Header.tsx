@@ -1,29 +1,61 @@
 import Wrapper from "./Wrapper";
 import { theme } from "../theme";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import Logo from "./Logo";
+import SearchBar from "./SearchBar";
 
 export default function Header() {
+  const location = useLocation();
+
   return (
     <Wrapper>
       <nav className="flex items-center justify-between">
         {/* logo */}
-        <p className="text-4xl font-primaryBold" style={{ color: theme.text }}>
-          yste
-        </p>
+        <Logo />
+
+        {/* search bar */}
+        <SearchBar
+          text="Search"
+          placeholder="search for something"
+          width="50%"
+        />
 
         {/* nav items */}
         <ul className="flex items-center">
-          <li className="mx-2 hover:text-lg">
-            <Link to={"/"}>Home</Link>
+          <li
+            className="mx-2 hover:text-lg"
+            style={{
+              color: location.pathname === "/" ? theme.text : "#000000",
+            }}
+          >
+            <NavLink to={"/"}>Home</NavLink>
           </li>
-          <li className="mx-2 hover:text-lg">
-            <Link to={"/about"}>About</Link>
+          <li
+            className="mx-2 hover:text-lg"
+            style={{
+              color: location.pathname === "/about" ? theme.text : "#000000",
+            }}
+          >
+            <NavLink to={"/about"}>About</NavLink>
           </li>
-          <li>Shop</li>
-          <li>Contact</li>
+          <li
+            className="mx-2 hover:text-lg"
+            style={{
+              color: location.pathname === "/shop" ? theme.text : "#000000",
+            }}
+          >
+            <NavLink to={"/shop"}>Shop</NavLink>
+          </li>
+          <li
+            className="mx-2 hover:text-lg"
+            style={{
+              color: location.pathname === "/contact" ? theme.text : "#000000",
+            }}
+          >
+            <NavLink to={"/contact"}>Contact</NavLink>
+          </li>
         </ul>
       </nav>
-      <div>Header</div>
     </Wrapper>
   );
 }
