@@ -8,7 +8,7 @@ export default function About() {
         <h1 className="font-primaryBold text-center text-3xl">
           Our wonderfully weird story
         </h1>
-        <div className="flex py-8">
+        <div className="flex py-12">
           {/* animation */}
           <div className="w-1/2">
             <img src={handshake_gif} alt="handshake gif" />
