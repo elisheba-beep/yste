@@ -2,16 +2,18 @@ import { useState } from "react";
 import Wrapper from "../components/Wrapper";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  // initial form data
+  const initialFormData = {
     fullname: "",
     email: "",
-    phoneNumber:"",
+    phoneNumber: "",
     subject: "",
     message: "",
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (event: {
-    target: { name: string ; value: string | number };
+    target: { name: string; value: string | number };
   }) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -19,10 +21,15 @@ export default function Contact() {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = (event: { preventDefault: any }) => {
-    event.preventDefault;
+    event.preventDefault();
     console.log(
       `Full name: ${formData.fullname}, Email: ${formData.email}, Message: ${formData.message}`
     );
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setFormData(initialFormData);
   };
   return (
     <Wrapper>
@@ -75,8 +82,11 @@ export default function Contact() {
               />
             </div>
             <input
-              type="text"
-              name="phone number"
+              type="tel"
+              name="phoneNumber"
+              pattern="\d{11,14}"
+              min={11}
+              max={14}
               value={formData.phoneNumber}
               onChange={handleChange}
               placeholder="Phone number*"
