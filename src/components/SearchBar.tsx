@@ -16,7 +16,7 @@ export default function SearchBar({
     >
       <input
         placeholder={placeholder}
-        className="w-3/4 px-2 border-0 outline-none text-gray-800"
+        className="px-2 h-10 border-0 outline-none text-gray-800"
       />
       <button className="hover:text-white p-2 hover:bg-black">{text}</button>
     </div>

@@ -4,7 +4,10 @@ import Wrapper from "../components/Wrapper";
 export default function Shop() {
   return (
     <Wrapper>
-      <AllProducts />
+      <div className="flex w-full">
+        <AllProducts />
+        <div className=""></div>
+      </div>
     </Wrapper>
   );
 }
