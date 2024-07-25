@@ -28,13 +28,30 @@ export default function Product() {
         }) => {
           if (picture.id === lastItem) {
             return (
-              <ProductCard
-                key={picture.id}
-                productName={picture.title}
-                image={picture.url}
-                price={5259}
-                shopName="MiladyMd"
-              />
+              <div className="flex justify-center items-center gap-24">
+                  <ProductCard
+                    key={picture.id}
+                    productName={picture.title}
+                    image={picture.url}
+                    price={5259}
+                    shopName="MiladyMd"
+                  />
+                {/* product details and buy button */}
+                <div className="font-primaryRegular flex flex-col gap-2 items-center w-1/3">
+                  <h1 className="font-primaryBold">{picture.title}</h1>
+                  <p className="font-primaryBoldItalic text-2xl">#5259</p>
+                  <hr className="bg-gray-200 h-1 w-full"/>
+                  <p className="text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+                    obcaecati eligendi suscipit molestias corporis, doloribus
+                    repellat provident nostrum sed eius.
+                  </p>
+
+                  <button className=" w-24 h-12 border-2 border-gray-600 rounded-xl hover:bg-black hover:text-white my-4">
+                    BUY NOW
+                  </button>
+                </div>
+              </div>
             );
           }
         }
