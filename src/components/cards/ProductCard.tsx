@@ -6,6 +6,7 @@ interface ProductCardProps {
   productName: string;
   price: number;
   shopName: string;
+  onClick?:VoidFunction;
 }
 
 export default function ProductCard({
@@ -13,6 +14,7 @@ export default function ProductCard({
   productName,
   price,
   shopName,
+  onClick,
 }: ProductCardProps) {
   const [favorite, setFavorite] = useState(false);
 
@@ -20,7 +22,7 @@ export default function ProductCard({
     setFavorite(!favorite);
   }
   return (
-    <div className="group relative w-1/5 h-64 rounded-2xl border-gray-300 border-2 my-12 mx-3 hover:cursor-pointer hover:shadow-2xl shadow-gray-800 overflow-hidden flex-none">
+    <div className="group relative w-1/5 h-64 rounded-2xl border-gray-300 border-2 my-12 mx-3 hover:cursor-pointer hover:shadow-2xl shadow-gray-800 overflow-hidden flex-none" onClick={onClick}>
       <div className="w-full h-2/3 ">
         <div className="bg-white rounded-full w-8 h-8 absolute right-0 m-2 items-center flex justify-center group-hover:visible invisible transition ease-in-out delay-250 group-hover:translate-y-1 hover:shadow-sm hover:shadow-black" onClick={handleFavorite} >
           {favorite ? (
