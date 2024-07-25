@@ -15,6 +15,7 @@ export default function Header() {
 
         {/* search bar */}
         <SearchBar
+        emailBar={false}
           text="Search"
           placeholder="search for something"
           width="50%"

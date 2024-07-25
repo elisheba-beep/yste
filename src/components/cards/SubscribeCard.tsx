@@ -7,7 +7,12 @@ export default function SubscribeCard() {
         Yes! Send me exclusive offers, unique gift ideas, and personalized tips
         for shopping and selling on yste.
       </p>
-      <SearchBar text="Subscribe" placeholder="enter your email" width="30%" />
+      <SearchBar
+        emailBar={true}
+        text="Subscribe"
+        placeholder="enter your email"
+        width="30%"
+      />
     </div>
   );
 }
