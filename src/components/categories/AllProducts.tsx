@@ -3,7 +3,7 @@
 import { Key, useState } from "react";
 import ProductCard from "../../components/cards/ProductCard";
 import Pagination from "./Pagination";
-import { useFetch } from "../../context/FetchContext";
+import { useFetch } from "../../hooks/FetchHook";
 import { useNavigate } from "react-router-dom";
 
 export default function AllProducts() {

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Key, useState } from "react";
-import { useFetch } from "../context/FetchContext";
+import { useFetch } from "../hooks/FetchHook";
 import { useNavigate } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
 

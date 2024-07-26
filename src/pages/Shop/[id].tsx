@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import ProductCard from "../../components/cards/ProductCard";
-import { useFetch } from "../../context/FetchContext";
+import { useFetch } from "../../hooks/FetchHook";
 import { Key } from "react";
 import Wrapper from "../../components/Wrapper";
 

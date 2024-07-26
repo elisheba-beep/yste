@@ -1,5 +1,5 @@
 import SquareCard from "../cards/SquareCard";
-import { useFetch } from "../../context/FetchContext";
+import { useFetch } from "../../hooks/FetchHook";
 import { Key } from "react";
 import { useNavigate } from "react-router-dom";
 
