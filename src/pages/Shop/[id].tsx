@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useLocation } from "react-router-dom";
 import ProductCard from "../../components/cards/ProductCard";
 import { useFetch } from "../../hooks/FetchHook";
@@ -24,7 +25,9 @@ export default function Product() {
         (picture: {
           id: Key | null | undefined;
           title: string;
-          url: string;
+          image: string;
+          description:string;
+          price:any;
         }) => {
           if (picture.id === lastItem) {
             return (
@@ -32,19 +35,17 @@ export default function Product() {
                   <ProductCard
                     key={picture.id}
                     productName={picture.title}
-                    image={picture.url}
-                    price={5259}
+                    image={picture.image}
+                    price={picture.price}
                     shopName="MiladyMd"
                   />
                 {/* product details and buy button */}
                 <div className="font-primaryRegular flex flex-col gap-2 items-center w-1/3">
                   <h1 className="font-primaryBold">{picture.title}</h1>
-                  <p className="font-primaryBoldItalic text-2xl">#5259</p>
+                  <p className="font-primaryBoldItalic text-2xl">${picture.price}</p>
                   <hr className="bg-gray-200 h-1 w-full"/>
                   <p className="text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                    obcaecati eligendi suscipit molestias corporis, doloribus
-                    repellat provident nostrum sed eius.
+                   {picture.description}
                   </p>
 
                   <button className=" w-24 h-12 border-2 border-gray-600 rounded-xl hover:bg-black hover:text-white my-4">

@@ -24,7 +24,7 @@ export default function PopularGifts() {
             .slice(0, 8)
             .map(
               (
-                picture: { id: number; title: string; url: string },
+                picture: { id: number; title: string; image: string },
                 index: Key | null | undefined
               ) => {
                 return (
@@ -34,7 +34,7 @@ export default function PopularGifts() {
                     }}
                     key={index}
                     text={picture.title.slice(0, 15)}
-                    image={picture.url}
+                    image={picture.image}
                     alt={picture.title.slice(0, 15)}
                   />
                 );

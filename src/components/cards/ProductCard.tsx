@@ -34,7 +34,7 @@ export default function ProductCard({
         <img src={image} alt="product image" className="w-full h-full" />
       </div>
       <p className="font-primaryRegular px-2 text-sm">{productName}</p>
-      <p className="font-primaryBold text-sm px-2 ">NGN {price}</p>
+      <p className="font-primaryBold text-sm px-2 ">USD {price}</p>
       <p className="font-primaryRegular text-sm px-2 ">{shopName}</p>
     </div>
   );

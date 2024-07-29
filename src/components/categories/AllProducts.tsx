@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Key, useState } from "react";
@@ -42,13 +43,14 @@ export default function AllProducts() {
           (picture: {
             id: Key | null | undefined;
             title: string;
-            url: string;
+            image: string;
+            price:any;
           }) => (
             <ProductCard
               key={picture.id}
               productName={picture.title}
-              image={picture.url}
-              price={5259}
+              image={picture.image}
+              price={picture.price}
               shopName="MiladyMd"
               onClick={() => {
                 navigate(`/shop/${picture.id}`);

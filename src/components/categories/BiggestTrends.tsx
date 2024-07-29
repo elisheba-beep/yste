@@ -25,7 +25,7 @@ export default function BiggestTrends() {
               .slice(0, 6)
               .map(
                 (
-                  picture: { url: string; title: string; id: number },
+                  picture: { image: string; title: string; id: number,category:string; },
                   index: Key | null | undefined
                 ) => {
                   return (
@@ -34,9 +34,9 @@ export default function BiggestTrends() {
                         navigate(`/shop/${picture.id}`);
                       }}
                       key={index}
-                      image={picture.url}
+                      image={picture.image}
                       text={picture.title.slice(0, 24)}
-                      alt="picture of chef's kiss category"
+                      alt={`picture of ${picture.category} category`}
                     />
                   );
                 }
