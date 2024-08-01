@@ -21,7 +21,7 @@ export default function PopularGifts() {
       ) : (
         <div className="flex overflow-x-scroll">
           {pictures
-            .slice(0, 8)
+            .slice(2, 7)
             .map(
               (
                 picture: { id: number; title: string; image: string },
@@ -33,9 +33,9 @@ export default function PopularGifts() {
                       navigate(`/shop/${picture.id}`);
                     }}
                     key={index}
-                    text={picture.title.slice(0, 15)}
+                    text={picture.title}
                     image={picture.image}
-                    alt={picture.title.slice(0, 15)}
+                    alt={picture.title}
                   />
                 );
               }

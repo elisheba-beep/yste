@@ -44,7 +44,7 @@ export default function AllProducts() {
             id: Key | null | undefined;
             title: string;
             image: string;
-            price:any;
+            price: any;
           }) => (
             <ProductCard
               key={picture.id}

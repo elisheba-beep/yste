@@ -1,11 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Key } from "react";
 import { useFetch } from "../../hooks/FetchHook";
 import RoundCard from "../cards/RoundCard";
 import { useNavigate } from "react-router-dom";
+import electronics from "../../assets/images/electronics.jpeg";
+import jewelry from "../../assets/images/jewelry.jpeg";
+import mensclothing from "../../assets/images/mensclothing.jpeg";
+import womensclothing from "../../assets/images/womensclothing.jpeg";
 
 export default function BiggestTrends() {
   // get pictures
-  const [isLoading, pictures] = useFetch();
+  const [isLoading, pictures, categories] = useFetch();
+  // just cause I don't like the yellow line that says 'unused'
+  pictures;
   // navigate
   const navigate = useNavigate();
 
@@ -21,26 +28,29 @@ export default function BiggestTrends() {
           </div>
         ) : (
           <div className="flex justify-center py-6">
-            {pictures
-              .slice(0, 6)
-              .map(
-                (
-                  picture: { image: string; title: string; id: number,category:string; },
-                  index: Key | null | undefined
-                ) => {
-                  return (
-                    <RoundCard
-                      onClick={() => {
-                        navigate(`/shop/${picture.id}`);
-                      }}
-                      key={index}
-                      image={picture.image}
-                      text={picture.title.slice(0, 24)}
-                      alt={`picture of ${picture.category} category`}
-                    />
-                  );
-                }
-              )}
+            {categories.map(
+              (category: string, index: Key | null | undefined) => {
+                return (
+                  <RoundCard
+                    onClick={() => {
+                      navigate(`/${category}`);
+                    }}
+                    key={index}
+                    image={
+                      category == "electronics"
+                        ? electronics
+                        : category == "jewelry"
+                        ? jewelry
+                        : category == "men's clothing"
+                        ? mensclothing
+                        : womensclothing
+                    }
+                    text={category}
+                    alt={`picture of ${category} category`}
+                  />
+                );
+              }
+            )}
           </div>
         )}
       </div>

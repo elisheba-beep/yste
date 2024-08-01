@@ -26,27 +26,27 @@ export default function Product() {
           id: Key | null | undefined;
           title: string;
           image: string;
-          description:string;
-          price:any;
+          description: string;
+          price: any;
         }) => {
           if (picture.id === lastItem) {
             return (
               <div className="flex justify-center items-center gap-24">
-                  <ProductCard
-                    key={picture.id}
-                    productName={picture.title}
-                    image={picture.image}
-                    price={picture.price}
-                    shopName="MiladyMd"
-                  />
+                <ProductCard
+                  key={picture.id}
+                  productName={picture.title}
+                  image={picture.image}
+                  price={picture.price}
+                  shopName="MiladyMd"
+                />
                 {/* product details and buy button */}
                 <div className="font-primaryRegular flex flex-col gap-2 items-center w-1/3">
                   <h1 className="font-primaryBold">{picture.title}</h1>
-                  <p className="font-primaryBoldItalic text-2xl">${picture.price}</p>
-                  <hr className="bg-gray-200 h-1 w-full"/>
-                  <p className="text-gray-500">
-                   {picture.description}
+                  <p className="font-primaryBoldItalic text-2xl">
+                    ${picture.price}
                   </p>
+                  <hr className="bg-gray-200 h-1 w-full" />
+                  <p className="text-gray-500">{picture.description}</p>
 
                   <button className=" w-24 h-12 border-2 border-gray-600 rounded-xl hover:bg-black hover:text-white my-4">
                     BUY NOW

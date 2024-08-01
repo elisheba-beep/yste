@@ -4,6 +4,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
 import Product from "./pages/Shop/[id]";
+import Category from "./pages/Category";
 
 export default function MainRoutes() {
   return (
@@ -13,6 +14,7 @@ export default function MainRoutes() {
       <Route path="/contact" Component={Contact} />
       <Route path="/shop/" Component={Shop} />
       <Route path="/shop/:id" Component={Product} />
+      <Route path="/:Category" Component={Category} />
     </Routes>
   );
 }

@@ -11,9 +11,7 @@ export const useFetch = () => {
     const fetchPictures = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(
-          "https://fakestoreapi.com/products"
-        );
+        const response = await fetch("https://fakestoreapi.com/products");
         const response2 = await fetch(
           "https://fakestoreapi.com/products/categories"
         );
