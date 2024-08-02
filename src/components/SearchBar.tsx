@@ -25,6 +25,8 @@ export default function SearchBar({
   const [filteredData, setFilteredData] = useState<any>([]);
   // word entered
   const [wordEntered, setWordEntered] = useState("");
+  // email entered
+  const [emailEntered, setEmailEntered] = useState("");
 
   // handle filter
   const handleFilter = (e: { target: { value: any } }) => {
@@ -38,6 +40,16 @@ export default function SearchBar({
     } else {
       setFilteredData(newFilter);
     }
+  };
+  // handle email
+  const handleEmail = (e: { target: { value: any } }) => {
+    const emailValue = e.target.value;
+    setEmailEntered(emailValue);
+  };
+
+  // clear email
+  const clearEmail = () => {
+    setEmailEntered("");
   };
 
   // clear input
@@ -53,13 +65,16 @@ export default function SearchBar({
         style={{ width: width }}
       >
         <input
-          value={wordEntered}
-          onChange={handleFilter}
+          value={emailBar ? emailEntered : wordEntered}
+          onChange={emailBar ? handleEmail : handleFilter}
           placeholder={placeholder}
           className="px-2 h-10 border-0 outline-none text-gray-800"
         />
-        {filteredData.length === 0 ? (
-          <button className="hover:text-white p-2 hover:bg-black">
+        {filteredData.length === 0 || emailBar ? (
+          <button
+            className="hover:text-white p-2 hover:bg-black"
+            onClick={emailBar ? clearEmail : () => {}}
+          >
             {text}
           </button>
         ) : (
