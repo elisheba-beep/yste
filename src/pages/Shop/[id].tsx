@@ -47,10 +47,13 @@ export default function Product() {
                   </p>
                   <hr className="bg-gray-200 h-1 w-full" />
                   <p className="text-gray-500">{picture.description}</p>
-
-                  <button className=" w-24 h-12 border-2 border-gray-600 rounded-xl hover:bg-black hover:text-white my-4">
+                  <a
+                    href="https://wa.me/08025805701"
+                    target="_blank"
+                    className=" w-24 h-12 pt-2 border-2 border-gray-600 rounded-xl hover:bg-black hover:text-white my-4 flex justify-center text-center"
+                  >
                     BUY NOW
-                  </button>
+                  </a>
                 </div>
               </div>
             );
