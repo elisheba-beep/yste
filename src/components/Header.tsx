@@ -3,26 +3,28 @@ import { theme } from "../theme";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
+import { useViewport } from "../context/viewportContext";
 
 export default function Header() {
   const location = useLocation();
+  const { isMobile } = useViewport();
 
   return (
     <Wrapper>
       <nav className="flex items-center justify-between">
         {/* logo */}
         <Logo />
-
-        {/* search bar */}
-        <SearchBar
-        emailBar={false}
-          text="Search"
-          placeholder="search for something"
-          width="50%"
-        />
+        {!isMobile && (
+          <SearchBar
+            emailBar={false}
+            text="Search"
+            placeholder="search for something"
+            width="50%"
+          />
+        )}
 
         {/* nav items */}
-        <ul className="flex items-center">
+        <ul className="lg:flex items-center">
           <li
             className="mx-2 hover:text-lg"
             style={{

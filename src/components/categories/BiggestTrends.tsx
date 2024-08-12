@@ -1,59 +1,47 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Key } from "react";
+import SquareCard from "../cards/SquareCard";
 import { useFetch } from "../../hooks/FetchHook";
-import RoundCard from "../cards/RoundCard";
+import { Key } from "react";
 import { useNavigate } from "react-router-dom";
-import electronics from "../../assets/images/electronics.jpeg";
-import jewelry from "../../assets/images/jewelry.jpeg";
-import mensclothing from "../../assets/images/mensclothing.jpeg";
-import womensclothing from "../../assets/images/womensclothing.jpeg";
 
 export default function BiggestTrends() {
   // get pictures
-  const [isLoading, pictures, categories] = useFetch();
-  // just cause I don't like the yellow line that says 'unused'
-  pictures;
+  const [isLoading, pictures] = useFetch();
   // navigate
   const navigate = useNavigate();
 
   return (
-    <div className="px-4 py-6">
-      <div>
-        <h3 className="text-3xl font-primaryRegular text-center">
-          Check out this season's biggest trends
-        </h3>
-        {isLoading ? (
-          <div>
-            <h1>Loading...</h1>
-          </div>
-        ) : (
-          <div className="flex justify-center py-6">
-            {categories.map(
-              (category: string, index: Key | null | undefined) => {
+    <div className="py-8">
+      <h2 className="text-3xl font-primaryBold">
+        Check out this season's biggest trends
+      </h2>
+      {isLoading ? (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      ) : (
+        <div className="flex overflow-x-scroll">
+          {pictures
+            .slice(2, 7)
+            .map(
+              (
+                picture: { id: number; title: string; image: string },
+                index: Key | null | undefined
+              ) => {
                 return (
-                  <RoundCard
+                  <SquareCard
                     onClick={() => {
-                      navigate(`/${category}`);
+                      navigate(`/shop/${picture.id}`);
                     }}
                     key={index}
-                    image={
-                      category == "electronics"
-                        ? electronics
-                        : category == "jewelry"
-                        ? jewelry
-                        : category == "men's clothing"
-                        ? mensclothing
-                        : womensclothing
-                    }
-                    text={category}
-                    alt={`picture of ${category} category`}
+                    text={picture.title}
+                    image={picture.image}
+                    alt={picture.title}
                   />
                 );
               }
             )}
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

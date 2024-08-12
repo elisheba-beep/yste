@@ -28,7 +28,7 @@ export default function ProductCard({
     >
       <div className="w-full h-2/3 ">
         <div
-          className="bg-white rounded-full w-8 h-8 absolute right-0 m-2 items-center flex justify-center group-hover:visible invisible transition ease-in-out delay-250 group-hover:translate-y-1 hover:shadow-sm hover:shadow-black"
+          className="bg-white rounded-full w-8 h-8 absolute right-0 m-2 items-center flex justify-center group-hover:visible invisible transition ease-in-out delay-250 group-hover:translate-y-1 hover:shadow-sm hover:shadow-black z-50"
           onClick={handleFavorite}
         >
           {favorite ? (

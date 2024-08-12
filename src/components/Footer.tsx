@@ -99,10 +99,6 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
-        <div>
-          <p>SIGN UP</p>
-        </div>
       </footer>
     </Wrapper>
   );
