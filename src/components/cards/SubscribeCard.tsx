@@ -1,6 +1,8 @@
+import { useViewport } from "../../context/viewportContext";
 import SearchBar from "../SearchBar";
 
 export default function SubscribeCard() {
+  const { isMobile } = useViewport();
   return (
     <div className="rounded-xl items-center flex flex-col gap-1 py-8 bg-black opacity-90 my-12">
       <p className="font-primaryRegular text-center p-2 text-white">
@@ -11,7 +13,7 @@ export default function SubscribeCard() {
         emailBar={true}
         text="Subscribe"
         placeholder="enter your email"
-        width="30%"
+        width={isMobile ? "70%" : "30%"}
       />
     </div>
   );

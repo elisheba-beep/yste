@@ -19,7 +19,7 @@ export default function BiggestTrends() {
           <h1>Loading...</h1>
         </div>
       ) : (
-        <div className="flex overflow-x-scroll">
+        <div className="flex md:overflow-x-scroll flex-wrap items-center justify-center md:flex-nowrap">
           {pictures
             .slice(2, 7)
             .map(

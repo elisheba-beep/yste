@@ -3,6 +3,7 @@ import { Key, useState } from "react";
 import { useFetch } from "../hooks/FetchHook";
 import { useNavigate } from "react-router-dom";
 import { GrClose } from "react-icons/gr";
+import { useViewport } from "../context/viewportContext";
 
 interface SearchBarProps {
   text: string;
@@ -17,6 +18,8 @@ export default function SearchBar({
   width,
   emailBar,
 }: SearchBarProps) {
+  // ismobile
+  const { isMobile } = useViewport();
   // all products
   const [isLoading, pictures] = useFetch();
   // navigate
@@ -71,7 +74,7 @@ export default function SearchBar({
           className="px-2 h-10 border-0 outline-none text-gray-800"
         />
         {filteredData.length === 0 || emailBar ? (
-          <button
+         !isMobile && <button
             className="hover:text-white p-2 hover:bg-black"
             onClick={emailBar ? clearEmail : () => {}}
           >

@@ -14,11 +14,11 @@ export default function Footer() {
   return (
     <Wrapper>
       <SubscribeCard />
-      <footer className="flex justify-between font-primaryRegular">
-        <div className="w-1/4">
+      <footer className="md:flex justify-between font-primaryRegular">
+        <div className="md:w-1/4">
           {/* logo */}
           <Logo />
-          <p className="my-4">
+          <p className="md:my-4">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed
             suscipit est aut voluptas at velit praesentium deserunt quae officia
             sit non fugiat, quo mollitia alias.

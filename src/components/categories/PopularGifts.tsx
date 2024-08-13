@@ -27,7 +27,7 @@ export default function PopularGifts() {
             <h1>Loading...</h1>
           </div>
         ) : (
-          <div className="flex justify-center py-6">
+          <div className="flex justify-center py-6 flex-wrap">
             {categories.map(
               (category: string, index: Key | null | undefined) => {
                 return (
